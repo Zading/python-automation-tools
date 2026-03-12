@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Agregar Tarea - Gestor de Tareas{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>➕ Agregar Nueva Tarea</h2>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">← Volver</a>
+</div>
+
+<div class="form-container">
+    <form method="POST" action="{{ url_for('agregar_tarea') }}" class="task-form">
+        <div class="form-group">
+            <label for="descripcion">Descripción de la tarea *</label>
+            <textarea 
+                id="descripcion" 
+                name="descripcion" 
+                rows="4" 
+                placeholder="Escribe aquí la descripción de tu tarea..."
+                required
+                autofocus
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="prioridad">Prioridad</label>
+            <select id="prioridad" name="prioridad" class="form-select">
+                <option value="alta">🔴 Alta - Importante y urgente</option>
+                <option value="media" selected>🟡 Media - Normal (por defecto)</option>
+                <option value="baja">🟢 Baja - Puede esperar</option>
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">✅ Agregar Tarea</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+
+
+

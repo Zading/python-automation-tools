@@ -1,0 +1,16 @@
+[
+  {
+    "titulo": "Primera prueba",
+    "contenido": "Esta es la primera prueba de mi block de notas creado con Python y Tkinter",
+    "categoria": "Personal",
+    "fecha_creacion": "2025-11-30T23:05:58.715042",
+    "fecha_modificacion": "2025-11-30T23:05:58.715042"
+  },
+  {
+    "titulo": "Prueba_2",
+    "contenido": "Segunda prueba utilizando el block de notas",
+    "categoria": "Personal",
+    "fecha_creacion": "2025-11-30T23:09:15.627657",
+    "fecha_modificacion": "2025-11-30T23:09:15.627657"
+  }
+]

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Estadísticas - Gestor de Tareas{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>📊 Estadísticas</h2>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">← Volver</a>
+</div>
+
+<div class="stats-container">
+    <div class="stats-grid">
+        <div class="stat-box stat-total">
+            <div class="stat-icon">📋</div>
+            <div class="stat-value">{{ total }}</div>
+            <div class="stat-title">Total de Tareas</div>
+        </div>
+
+        <div class="stat-box stat-completed-box">
+            <div class="stat-icon">✅</div>
+            <div class="stat-value">{{ completadas }}</div>
+            <div class="stat-title">Completadas</div>
+        </div>
+
+        <div class="stat-box stat-pending-box">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-value">{{ pendientes }}</div>
+            <div class="stat-title">Pendientes</div>
+        </div>
+
+        <div class="stat-box stat-progress-box">
+            <div class="stat-icon">📈</div>
+            <div class="stat-value">{{ porcentaje }}%</div>
+            <div class="stat-title">Progreso</div>
+        </div>
+    </div>
+
+    <!-- Barra de progreso -->
+    <div class="progress-section">
+        <h3>Progreso General</h3>
+        <div class="progress-bar-container">
+            <div class="progress-bar" style="width: {{ porcentaje }}%"></div>
+        </div>
+        <p class="progress-text">{{ completadas }} de {{ total }} tareas completadas</p>
+    </div>
+
+    <!-- Tareas pendientes por prioridad -->
+    <div class="priority-stats">
+        <h3>Tareas Pendientes por Prioridad</h3>
+        <div class="priority-list">
+            <div class="priority-item priority-alta">
+                <div class="priority-icon">🔴</div>
+                <div class="priority-info">
+                    <div class="priority-name">Alta</div>
+                    <div class="priority-count">{{ prioridades.alta }} tarea(s)</div>
+                </div>
+            </div>
+            <div class="priority-item priority-media">
+                <div class="priority-icon">🟡</div>
+                <div class="priority-info">
+                    <div class="priority-name">Media</div>
+                    <div class="priority-count">{{ prioridades.media }} tarea(s)</div>
+                </div>
+            </div>
+            <div class="priority-item priority-baja">
+                <div class="priority-icon">🟢</div>
+                <div class="priority-info">
+                    <div class="priority-name">Baja</div>
+                    <div class="priority-count">{{ prioridades.baja }} tarea(s)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

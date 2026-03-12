@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio - Gestor de Tareas{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>📋 Lista de Tareas</h2>
+    <div class="header-actions">
+        <a href="{{ url_for('agregar_tarea') }}" class="btn btn-primary">+ Nueva Tarea</a>
+    </div>
+</div>
+
+<!-- Filtros -->
+<div class="filters">
+    <form method="GET" action="{{ url_for('index') }}" class="filter-form">
+        <div class="filter-group">
+            <label>
+                <input type="checkbox" name="mostrar_completadas" value="true" 
+                       {% if mostrar_completadas %}checked{% endif %} 
+                       onchange="this.form.submit()">
+                Mostrar completadas
+            </label>
+        </div>
+        <div class="filter-group">
+            <select name="prioridad" onchange="this.form.submit()">
+                <option value="">Todas las prioridades</option>
+                <option value="alta" {% if filtro_prioridad == 'alta' %}selected{% endif %}>🔴 Alta</option>
+                <option value="media" {% if filtro_prioridad == 'media' %}selected{% endif %}>🟡 Media</option>
+                <option value="baja" {% if filtro_prioridad == 'baja' %}selected{% endif %}>🟢 Baja</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Limpiar filtros</a>
+        </div>
+    </form>
+</div>
+
+<!-- Búsqueda -->
+<div class="search-section">
+    <form method="POST" action="{{ url_for('buscar_tareas') }}" class="search-form">
+        <input type="text" name="termino" placeholder="🔍 Buscar tareas..." required>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+</div>
+
+<!-- Estadísticas rápidas -->
+<div class="stats-cards">
+    <div class="stat-card">
+        <div class="stat-number">{{ total }}</div>
+        <div class="stat-label">Total</div>
+    </div>
+    <div class="stat-card stat-completed">
+        <div class="stat-number">{{ completadas }}</div>
+        <div class="stat-label">Completadas</div>
+    </div>
+    <div class="stat-card stat-pending">
+        <div class="stat-number">{{ pendientes }}</div>
+        <div class="stat-label">Pendientes</div>
+    </div>
+    <div class="stat-card stat-progress">
+        <div class="stat-number">{{ porcentaje }}%</div>
+        <div class="stat-label">Progreso</div>
+    </div>
+</div>
+
+<!-- Lista de tareas -->
+{% if tareas %}
+    <div class="tareas-list">
+        {% for tarea in tareas %}
+        <div class="tarea-card {% if tarea.completada %}tarea-completada{% endif %}">
+            <div class="tarea-header">
+                <div class="tarea-status">
+                    {% if tarea.completada %}
+                        <span class="status-icon status-completed">✅</span>
+                    {% else %}
+                        <span class="status-icon status-pending">⏳</span>
+                    {% endif %}
+                    <span class="tarea-id">#{{ tarea.id }}</span>
+                </div>
+                <div class="tarea-priority priority-{{ tarea.prioridad }}">
+                    {% if tarea.prioridad == 'alta' %}🔴 Alta
+                    {% elif tarea.prioridad == 'media' %}🟡 Media
+                    {% else %}🟢 Baja{% endif %}
+                </div>
+            </div>
+            
+            <div class="tarea-body">
+                <p class="tarea-descripcion">{{ tarea.descripcion }}</p>
+                <div class="tarea-meta">
+                    <span class="tarea-fecha">📅 Creada: {{ tarea.fecha_creacion }}</span>
+                    {% if tarea.completada and tarea.fecha_completada %}
+                        <span class="tarea-fecha">✅ Completada: {{ tarea.fecha_completada }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="tarea-actions">
+                {% if not tarea.completada %}
+                    <form method="POST" action="{{ url_for('completar_tarea', id_tarea=tarea.id) }}" style="display: inline;">
+                        <button type="submit" class="btn btn-success">✅ Completar</button>
+                    </form>
+                {% endif %}
+                <form method="POST" action="{{ url_for('eliminar_tarea', id_tarea=tarea.id) }}" 
+                      onsubmit="return confirm('¿Estás seguro de eliminar esta tarea?');" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">🗑️ Eliminar</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="empty-state">
+        <div class="empty-icon">📝</div>
+        <h3>No hay tareas para mostrar</h3>
+        <p>Comienza agregando tu primera tarea</p>
+        <a href="{{ url_for('agregar_tarea') }}" class="btn btn-primary">Agregar Tarea</a>
+    </div>
+{% endif %}
+{% endblock %}
+
+
+
+

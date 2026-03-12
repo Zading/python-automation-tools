@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "descripcion": "Bañar al perro",
+    "completada": false,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-21 00:29:27",
+    "fecha_completada": null
+  },
+  {
+    "id": 2,
+    "descripcion": "Comprar crema de cacahuate",
+    "completada": false,
+    "prioridad": "alta",
+    "fecha_creacion": "2025-11-21 00:30:14",
+    "fecha_completada": null
+  },
+  {
+    "id": 3,
+    "descripcion": "Llamar a la abuela",
+    "completada": false,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-21 00:33:08",
+    "fecha_completada": null
+  },
+  {
+    "id": 4,
+    "descripcion": "Prueba_1",
+    "completada": false,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-21 00:34:57",
+    "fecha_completada": null
+  },
+  {
+    "id": 5,
+    "descripcion": "bañar al gato",
+    "completada": false,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-21 00:38:12",
+    "fecha_completada": null
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "descripcion": "get food",
+    "completada": true,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-23 19:31:21",
+    "fecha_completada": "2025-11-23 19:57:01"
+  },
+  {
+    "id": 2,
+    "descripcion": "comprar comida",
+    "completada": true,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-23 19:32:16",
+    "fecha_completada": "2025-11-23 19:57:05"
+  },
+  {
+    "id": 4,
+    "descripcion": "Tarea de prueba",
+    "completada": true,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-23 19:38:25",
+    "fecha_completada": "2025-11-23 19:57:08"
+  },
+  {
+    "id": 5,
+    "descripcion": "Tarea de prueba",
+    "completada": true,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-23 19:38:59",
+    "fecha_completada": "2025-11-23 19:57:11"
+  },
+  {
+    "id": 6,
+    "descripcion": "bañar al perro",
+    "completada": true,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-23 19:42:42",
+    "fecha_completada": "2025-11-23 19:57:16"
+  },
+  {
+    "id": 7,
+    "descripcion": "ir al mercado",
+    "completada": true,
+    "prioridad": "alta",
+    "fecha_creacion": "2025-11-23 19:43:07",
+    "fecha_completada": "2025-11-23 19:56:50"
+  }
+]

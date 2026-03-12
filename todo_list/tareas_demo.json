@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "descripcion": "Estudiar Python - Clases y objetos",
+    "completada": true,
+    "prioridad": "alta",
+    "fecha_creacion": "2025-11-20 23:45:15",
+    "fecha_completada": "2025-11-20 23:45:15"
+  },
+  {
+    "id": 2,
+    "descripcion": "Comprar ingredientes para la cena",
+    "completada": false,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-20 23:45:15",
+    "fecha_completada": null
+  },
+  {
+    "id": 3,
+    "descripcion": "Llamar a mama",
+    "completada": true,
+    "prioridad": "alta",
+    "fecha_creacion": "2025-11-20 23:45:15",
+    "fecha_completada": "2025-11-20 23:45:15"
+  },
+  {
+    "id": 4,
+    "descripcion": "Leer un capitulo del libro",
+    "completada": false,
+    "prioridad": "baja",
+    "fecha_creacion": "2025-11-20 23:45:15",
+    "fecha_completada": null
+  },
+  {
+    "id": 5,
+    "descripcion": "Hacer ejercicio",
+    "completada": false,
+    "prioridad": "media",
+    "fecha_creacion": "2025-11-20 23:45:15",
+    "fecha_completada": null
+  }
+]
